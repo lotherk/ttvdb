@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = TTVDB::VERSION
   spec.authors       = ["Konrad Lother"]
   spec.email         = ["konrad@corpex.de"]
-  spec.summary       = %q{TheTVDB API Library}
-  spec.description   = %q{TheTVDB API Library - Another the tvdb api library}
-  spec.homepage      = ""
+  spec.summary       = %q{The TVDB API Library}
+  spec.description   = %q{The TVDB API Library - Another the tvdb api library}
+  spec.homepage      = "https://github.com/lotherk/ttvdb"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
