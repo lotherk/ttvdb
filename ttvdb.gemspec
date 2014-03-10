@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Konrad Lother"]
   spec.email         = ["konrad@corpex.de"]
   spec.summary       = %q{TheTVDB API Library}
-  spec.description   = %q{TheTVDB API Library}
+  spec.description   = %q{TheTVDB API Library - Another the tvdb api library}
   spec.homepage      = ""
   spec.license       = "MIT"
 
