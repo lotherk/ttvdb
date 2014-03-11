@@ -2,6 +2,11 @@
 
 This is another [TheTVDB.com](http://www.thetvdb.com) API library. The others out there didn't fit my needs (if they even worked).
 
+Source code is available at [github](httsp://github.com/lotherk/ttvdb)
+
+Documentation is availiable at [rubydoc.info](http://rubydoc.info/github/lotherk/ttvdb)
+
+
 
 ## Installation
 
@@ -16,6 +21,13 @@ And then execute:
 Or install it yourself as:
 
     $ gem install ttvdb
+
+From source:
+
+    $ git clone https://github.com/lotherk/ttvdb
+    $ cd ttvdb
+    $ rake build
+    $ gem install pkg/ttvdb-VERSION.gem
 
 ## Usage
 
