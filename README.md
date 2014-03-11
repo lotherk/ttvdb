@@ -31,19 +31,13 @@ Create a ```TTVDB::Client``` instance
 client = TTVDB::Client.new(options={})
 ```
 
+Where ```options``` can be:
+
 | key | value | description
 | --- | :---: | --- |
 | ```:api_key``` | api key | Your TheTVDB API Key, *optional* |
 | ```:api_url``` | http://www.thetvdb.com/api/ | API Url, *optional* |
 | ```:language```|```en```,```de```,```fr```,... | The language code to use. Fallback is ```en```, *optional* |
-
-Fetch series by name. Returns an array of series if result count is more than 1.
-
-```ruby
-series = client.get_series "Saber Rider"
-```
-
-Results to an array of 3 ```TTVDB::Series``` instances.
 
 # Example
 
