@@ -87,7 +87,7 @@ See the ```examples/``` folder for a complete list of examples. I try to make th
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/ttvdb/fork )
+1. Fork it ( http://github.com/lotherk/ttvdb/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
