@@ -4,7 +4,7 @@ This is another [TheTVDB.com](http://www.thetvdb.com) API library. The others ou
 
 Source code is available at [github](httsp://github.com/lotherk/ttvdb)
 
-Documentation is availiable at [rubydoc.info](http://rubydoc.info/github/lotherk/ttvdb)
+Documentation is available at [rubydoc.info](http://rubydoc.info/github/lotherk/ttvdb)
 
 Gem is available at [rubygems.org](https://rubygems.org/gems/ttvdb)
 
