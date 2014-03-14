@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lotherk/ttvdb.png?branch=master)](https://travis-ci.org/lotherk/ttvdb)
+
 # TTVDB
 
 This is another [TheTVDB.com](http://www.thetvdb.com) API library. The others out there didn't fit my needs (if they even worked).
