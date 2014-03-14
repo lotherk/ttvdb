@@ -1,3 +1,4 @@
+require 'ttvdb/parser'
 require 'ttvdb/series'
 require 'ttvdb/episode'
 
@@ -16,45 +17,35 @@ class TTVDB::Client
 
   def get_series_by_id id
     lookup = "series/#{id}/#{@language}.xml"
-    begin
-      hsh = XmlSimple.xml_in(client[lookup].get)
-      return TTVDB::Series.new(hsh["Series"][0], :client => self)
-    rescue Exception => e
-      raise
-    end
+    hsh = XmlSimple.xml_in(client[lookup].get)
+    serie = TTVDB::Series.new(hsh["Series"][0])
+    serie.client = self
+    return serie
   end
 
   def get_series name
     _client = RestClient::Resource.new("#{@opts[:api_url]}/GetSeries.php", :headers  => { :params => { 'seriesname' => name, 'language' => @language }})
-    begin
-      hsh = XmlSimple.xml_in(_client.get)
-      return [] unless hsh["Series"]
-      series = []
-      hsh["Series"].each do |s|
-        serie = TTVDB::Series.new(s, :client => self)
-        next if serie.language != @language
-        series << serie
-      end
-      return series
-    rescue Exception => e
-      TTVDB.logger.error { "Error while fetching series: #{e.message}" }
-      raise
+    hsh = XmlSimple.xml_in(_client.get)
+    return [] unless hsh["Series"]
+    series = []
+    hsh["Series"].each do |s|
+      serie = TTVDB::Series.new(s)
+      next if serie.language != @language
+      serie.client = self
+      series << serie
     end
+    return series
   end
 
   def get_episodes_by_series_id id
     lookup = "series/#{id}/all/#{@language}.xml"
-    begin
-      hsh = XmlSimple.xml_in(client[lookup].get)
-      return [] unless hsh["Episode"]
-      episodes = []
-      hsh["Episode"].each do |e|
-          episodes << TTVDB::Episode.new(e, :client => self)
-      end
-      return episodes
-    rescue Exception => e
-      TTVDB.logger.error("get_episodes_by_series_id") { "Could not create hash from result: #{e.message}" }
-      raise
+    hsh = XmlSimple.xml_in(client[lookup].get)
+    return [] unless hsh["Episode"]
+    episodes = []
+    hsh["Episode"].each do |e|
+      episode = TTVDB::Episode.new(e)
+      episode.client = self
+      episodes << episode
     end
   end
 

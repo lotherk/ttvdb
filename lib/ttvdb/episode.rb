@@ -1,21 +1,18 @@
 class TTVDB::Episode
-  attr_reader :id, :number, :name, :overview, :season_id, :series_id,
-  :combined_number, :combined_season
+  include TTVDB::Parser
 
-  attr_writer :client, :series
+  attr_reader :id, :combined_episodenumber, :combined_season,
+  :dvd_chapter, :dvd_discid, :dvd_episodenumber, :dvd_season,
+  :director, :ep_img_flag, :episode_name, :name, :episode_number,
+  :number, :first_aired, :guest_stars, :imdb_id, :overview,
+  :last_updated, :rating, :absolute_number, :season_number,
+  :season_id, :series_id
 
-  def initialize(data, options={})
-    options.merge! data
-    @id = options["id"][0].to_i rescue nil
-    @number = options["EpisodeNumber"][0].to_i rescue nil
-    @name = options["EpisodeName"][0] rescue nil
-    @overview = options["Overview"][0] rescue nil
-    @season_id = options["seasonid"][0].to_i rescue nil
-    @series_id = options["seriesid"][0].to_i rescue nil
-    @combined_number = options["Combined_episodenumber"][0].to_i rescue nil
-    @combined_season = options["Combined_season"][0].to_i rescue nil
-    @client = options[:client] rescue nil
-    @series = options[:series] rescue nil
+  attr_accessor :client, :series
+
+  def initialize(data)
+    @data = Hash[data.map { |k, v| [k.downcase, v] }]
+    parse
   end
 
 end

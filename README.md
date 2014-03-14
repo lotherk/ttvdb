@@ -33,6 +33,10 @@ From source:
 
 ## Usage
 
+### Using the CLI tools
+
+
+### Writing Code
 Require the gem
 
 ```ruby
@@ -55,7 +59,7 @@ Where ```options``` can be:
 
 # Example
 
-This is an example script that fetches a series by ARGV. if ARGV is an integer, it ill fetch it by its id otherwise by its name. It will then print a little overview about the series.
+This is an example script that fetches a series by ARGV. if ARGV is an integer, it will fetch it by its id otherwise by its name. It will then print a little overview about the series.
 
 ## Usage
 ```bash

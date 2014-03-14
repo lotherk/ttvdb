@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["konrad@corpex.de"]
   spec.summary       = %q{The TVDB API Library}
   spec.description   = %q{The TVDB API Library - Another the tvdb api library}
-  spec.homepage      = "https://github.com/lotherk/ttvdb"
+  spec.homepage      = "https://lotherk.github.io/ttvdb"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
