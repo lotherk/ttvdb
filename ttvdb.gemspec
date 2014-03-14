@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard"
   spec.add_dependency "xml-simple"
   spec.add_dependency "rest-client"
+  spec.add_dependency "similar_text"
 end

@@ -47,6 +47,7 @@ class TTVDB::Client
       episode.client = self
       episodes << episode
     end
+    episodes
   end
 
   private

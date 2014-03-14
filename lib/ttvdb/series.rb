@@ -1,5 +1,6 @@
 class TTVDB::Series
   include TTVDB::Parser
+  include TTVDB::Match
 
   attr_reader :id, :actors, :airs_dayofweek, :airs_time,
   :content_rating, :first_aired, :genre, :imdb_id, :language,

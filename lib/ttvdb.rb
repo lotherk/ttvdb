@@ -2,6 +2,7 @@ require "rest-client"
 require "logger"
 require "xmlsimple"
 require "ttvdb/version"
+require "ttvdb/match"
 require "ttvdb/client"
 
 
