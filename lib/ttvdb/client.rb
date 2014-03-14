@@ -2,7 +2,7 @@ require 'ttvdb/series'
 require 'ttvdb/episode'
 
 class TTVDB::Client
-  attr_writer :language
+  attr_accessor :language
 
   def initialize(opts = {})
     @opts = {
@@ -15,7 +15,7 @@ class TTVDB::Client
   end
 
   def get_series_by_id id
-    lookup = "series/#{id}/#{@opts[:language]}.xml"
+    lookup = "series/#{id}/#{@language}.xml"
     begin
       hsh = XmlSimple.xml_in(client[lookup].get)
       return TTVDB::Series.new(hsh["Series"][0], :client => self)
@@ -43,7 +43,7 @@ class TTVDB::Client
   end
 
   def get_episodes_by_series_id id
-    lookup = "series/#{id}/all/#{@opts[:language]}.xml"
+    lookup = "series/#{id}/all/#{@language}.xml"
     begin
       hsh = XmlSimple.xml_in(client[lookup].get)
       return [] unless hsh["Episode"]
