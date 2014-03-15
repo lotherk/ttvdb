@@ -12,8 +12,8 @@ module TTVDB::Match
       else
         # try all
         episode = match_episode_regex filename, opts rescue nil
-        episode ||= match_episode_name(filename, opts) rescue nil
-        episode ||= match_episode_regex(filename, opts) rescue nil
+        episode ||= match_episode_name filename, opts rescue nil
+        episode ||= match_episode_sorted filename, opts rescue nil
     end
     episode
   end
@@ -28,7 +28,7 @@ module TTVDB::Match
     results = []
     episodes.each do |episode|
       min = opts[:min]
-      min ||= 45
+      min ||= 60
       results << episode if episode.name.similar(filename) >= min
     end
     if results.count == 0

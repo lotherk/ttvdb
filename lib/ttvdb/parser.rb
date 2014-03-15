@@ -1,6 +1,4 @@
 module TTVDB::Parser
-  attr_reader :id
-
   MAP = {
     "id" => { :map => true, :cast => :integer },
     "combined_episodenumber" => { :map => true, :cast => :float },
@@ -9,7 +7,7 @@ module TTVDB::Parser
     "dvd_discid" => { :map => true, :cast => :integer },
     "dvd_episodenumber" => { :map => true, :cast => :float },
     "dvd_season" => { :map => true, :cast => :integer },
-    "director" => { :map => true },
+    "director" => { :map => true, :cast => :array },
     "epimgflag" => { :map => true, :cast => :integer },
     "episodename" => { :map => :name },
     "episodenumber" => { :map => :number, :cast => :integer },
@@ -81,7 +79,7 @@ module TTVDB::Parser
       when :float
         v = v.to_f rescue v
       when :array
-        v = v.split("|").compact rescue v
+        v = v.split("|").compact.reject { |c| c.empty? } rescue v
       when :time_at
         v = Time.at(v.to_i) rescue v
       when :time
@@ -94,6 +92,7 @@ module TTVDB::Parser
     else
       k = MAP[k][:map].to_sym
     end
+    v = (v.is_a? Hash and v.empty?) ? nil : v
     [k, v]
   end
 end

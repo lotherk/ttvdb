@@ -32,6 +32,7 @@ class TTVDB::Series
       end
       @seasons[episode.combined_season][episode.number] = episode
     end
+    @seasons = Hash[@seasons.sort_by {|k,v| k.to_i }]
     sort_episodes!
   end
 
