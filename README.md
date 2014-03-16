@@ -84,7 +84,7 @@ Options:
      --detailed, -d:   show detailed informations for a series
     --limit, -l <i>:   limit result if --detailed is used (default: 0)
   --episode, -e <s>:   show detailed informations for an episode. can be name,
-                       num or id
+                       name or id
          --help, -h:   Show this message
 ```
 
