@@ -38,7 +38,7 @@
 
 <p>This is another <a href="http://www.thetvdb.com">TheTVDB.com</a> API library. The others out there didn't fit my needs (if they even worked).</p>
 
-<p>Source code is available at <a>github</a></p>
+<p>Source code is available at <a href="https://github.com/lotherk/ttvdb">github</a></p>
 
 <p>Documentation is available at <a href="http://rubydoc.info/github/lotherk/ttvdb">rubydoc.info</a></p>
 
@@ -72,6 +72,66 @@ $ gem install pkg/ttvdb-VERSION.gem
 
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a name="using-the-cli-tools" class="anchor" href="#using-the-cli-tools"><span class="octicon octicon-link"></span></a>Using the CLI tools</h3>
+
+<h4>
+<a name="synopsis" class="anchor" href="#synopsis"><span class="octicon octicon-link"></span></a>Synopsis</h4>
+
+<pre><code>ttvdb 0.0.4 (c) 2014 Konrad Lother
+
+usage: ttvdb [global options] &lt;subcommand&gt; [subcommand options]
+
+Available subcommands:
+  search           - search a serie
+
+Global options:
+  --language, -l &lt;s&gt;:   Language (default: en)
+         --debug, -d:   Enable debug messages
+       --version, -v:   Print version and exit
+          --help, -h:   Show this message
+</code></pre>
+
+<h4>
+<a name="search" class="anchor" href="#search"><span class="octicon octicon-link"></span></a>search</h4>
+
+<p>The <code>search</code> subcommand lets you search for a particular series.</p>
+
+<pre><code>Search for a series
+
+usage: ttvdb [options] search [options] name1 name2 name3 ...
+
+nameN can either be id or name
+
+Example:
+
+  $ ttvdb search "Galaxy Rangers"
+
+  $ ttvdb search 77772
+
+  $ ttvdb search "Galaxy Rangers" -d
+
+  $ ttvdb search "Galaxy Rangers" -d -l 10
+
+  $ ttvdb search 77772 -e heartbeat
+
+  $ ttvdb search 77772 -e s01e65
+
+  $ ttvdb search 77772 -e e65
+
+  $ ttvdb search 77772 -e 65
+
+Options:
+     --detailed, -d:   show detailed informations for a series
+    --limit, -l &lt;i&gt;:   limit result if --detailed is used (default: 0)
+  --episode, -e &lt;s&gt;:   show detailed informations for an episode. can be name,
+                       num or id
+         --help, -h:   Show this message
+</code></pre>
+
+<h3>
+<a name="writing-code" class="anchor" href="#writing-code"><span class="octicon octicon-link"></span></a>Writing Code</h3>
 
 <p>Require the gem</p>
 
@@ -115,7 +175,7 @@ $ gem install pkg/ttvdb-VERSION.gem
 </table><h1>
 <a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h1>
 
-<p>This is an example script that fetches a series by ARGV. if ARGV is an integer, it ill fetch it by its id otherwise by its name. It will then print a little overview about the series.</p>
+<p>This is an example script that fetches a series by ARGV. if ARGV is an integer, it will fetch it by its id otherwise by its name. It will then print a little overview about the series.</p>
 
 <h2>
 <a name="usage-1" class="anchor" href="#usage-1"><span class="octicon octicon-link"></span></a>Usage</h2>
