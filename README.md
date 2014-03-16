@@ -4,7 +4,7 @@
 
 This is another [TheTVDB.com](http://www.thetvdb.com) API library. The others out there didn't fit my needs (if they even worked).
 
-Source code is available at [github](httsp://github.com/lotherk/ttvdb)
+Source code is available at [github](https://github.com/lotherk/ttvdb)
 
 Documentation is available at [rubydoc.info](http://rubydoc.info/github/lotherk/ttvdb)
 
@@ -35,8 +35,61 @@ From source:
 
 ### Using the CLI tools
 
+#### Synopsis
+```
+ttvdb 0.0.4 (c) 2014 Konrad Lother
+
+usage: ttvdb [global options] <subcommand> [subcommand options]
+
+Available subcommands:
+  search           - search a serie
+
+Global options:
+  --language, -l <s>:   Language (default: en)
+         --debug, -d:   Enable debug messages
+       --version, -v:   Print version and exit
+          --help, -h:   Show this message
+```
+
+#### search
+
+The ```search``` subcommand lets you search for a particular series.
+
+```
+Search for a series
+
+usage: ttvdb [options] search [options] name1 name2 name3 ...
+
+nameN can either be id or name
+
+Example:
+
+  $ ttvdb search "Galaxy Rangers"
+
+  $ ttvdb search 77772
+
+  $ ttvdb search "Galaxy Rangers" -d
+
+  $ ttvdb search "Galaxy Rangers" -d -l 10
+
+  $ ttvdb search 77772 -e heartbeat
+
+  $ ttvdb search 77772 -e s01e65
+
+  $ ttvdb search 77772 -e e65
+
+  $ ttvdb search 77772 -e 65
+
+Options:
+     --detailed, -d:   show detailed informations for a series
+    --limit, -l <i>:   limit result if --detailed is used (default: 0)
+  --episode, -e <s>:   show detailed informations for an episode. can be name,
+                       num or id
+         --help, -h:   Show this message
+```
 
 ### Writing Code
+
 Require the gem
 
 ```ruby
