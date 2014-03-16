@@ -34,7 +34,7 @@ class TTVDB::CLI::Subcommand::Search
       banner "Options:"
       opt :detailed, "show detailed informations for a series", :short => "-d"
       opt :limit, "limit result if --detailed is used", :short => "-l", :default => 0
-      opt :episode, "show detailed informations for an episode. can be name, num or id", :short => 'e', :type => String
+      opt :episode, "show detailed informations for an episode. can be name, name (also partial) or id", :short => 'e', :type => String
       conflicts :detailed, :episode
     end
 
