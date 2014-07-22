@@ -27,10 +27,10 @@ class TTVDB::Series
     @episodes = @client.get_episodes_by_series_id @id
     return unless @episodes
     @episodes.each do |episode|
-      unless @seasons[episode.combined_season]
-        @seasons[episode.combined_season] = {}
+      unless @seasons[episode.season_number]
+        @seasons[episode.season_number] = {}
       end
-      @seasons[episode.combined_season][episode.number] = episode
+      @seasons[episode.season_number][episode.number] = episode
     end
     @seasons = Hash[@seasons.sort_by {|k,v| k.to_i }]
     sort_episodes!
