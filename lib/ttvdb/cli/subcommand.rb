@@ -11,8 +11,12 @@ module TTVDB::CLI::Subcommand
     @subcmds ||= {}
     return @subcmds[index] if @subcmds[index]
     classname = "TTVDB::CLI::Subcommand::#{index.to_s.capitalize}"
-    klass = eval(classname)
-    @subcmds[index] = klass.new
+    begin
+      klass = eval(classname)
+      @subcmds[index] = klass.new
+    rescue NameError
+      raise RuntimeError, "Unknown subcommand #{index}, See ttvdb --help"
+    end
   end
   def self.subcommands
     @subcommands ||= self.load_subcommands

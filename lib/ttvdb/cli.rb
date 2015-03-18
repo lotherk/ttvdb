@@ -10,7 +10,7 @@ module TTVDB::CLI
     TTVDB::CLI::Subcommand.subcommands.each { |subcmd| subs << subcmd.to_s.downcase }
     p = Trollop::Parser.new do
       version TTVDB::VERSION
-      banner "ttvdb #{TTVDB::VERSION} (c) 2014 Konrad Lother"
+      banner "ttvdb #{TTVDB::VERSION}"
       banner ""
       banner "usage: ttvdb [global options] <subcommand> [subcommand options]"
       banner ""
@@ -35,7 +35,18 @@ module TTVDB::CLI
     end
     subcmd = ARGV.shift
     client = TTVDB::Client.new(:language => @options[:language])
-    TTVDB::CLI::Subcommand[subcmd].main client
+    begin
+      TTVDB::CLI::Subcommand[subcmd].main client
+    rescue RuntimeError => e
+      unless @options[:debug]
+        puts "Error: #{e.message}"
+        exit 1
+      else
+        raise
+      end
+    rescue
+      raise
+    end
 
   end
 end
