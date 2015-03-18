@@ -95,4 +95,8 @@ module TTVDB::Parser
     v = (v.is_a? Hash and v.empty?) ? nil : v
     [k, v]
   end
+
+  def to_s
+    self.inspect
+  end
 end

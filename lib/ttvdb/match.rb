@@ -27,6 +27,7 @@ module TTVDB::Match
   def match_episode_name filename, opts = {}
     results = []
     episodes.each do |episode|
+      next unless episode.name
       min = opts[:min]
       min ||= 60
       results << episode if episode.name.similar(filename) >= min

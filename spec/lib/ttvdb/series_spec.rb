@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require 'time'
 describe TTVDB::Series do
   describe "#initialize" do
     let(:serie) {
